@@ -13,23 +13,30 @@
             'authorization': 'Basic VsJX0LSys1UJvblOz5W2'
           },
           success: (file, res)=>{
+
             if(res.result == 'EXISTED'){
               this.duplication = res;
             }else{
               this.duplication = null;
             }
             this.fetching = false;
+            this.processingTime = Date.now() - this.initFetchingTime;
           },
           sending:(file, xhr, formData)=>{
-            console.log(this);
+
             this.fetching = true;
+            this.initFetchingTime = Date.now();
             formData.append("errorRate", this.errorRate);
+            formData.append("searchType", this.searchType);
           }
         });
       },
       methods:{
         changeErrorRate:function(rate){
           this.errorRate = rate;
+        },
+        changeSearchType:function(type){
+          this.searchType = type;
         }
       },
       data(){
@@ -37,7 +44,10 @@
           eventsList:[],
           fetching:false,
           duplication:null,
-          errorRate:5
+          errorRate:5,
+          initFetchingTime:0,
+          processTime:0,
+          searchType:'similar'
         }
       },
       components:{

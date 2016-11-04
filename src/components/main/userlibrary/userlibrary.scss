@@ -51,7 +51,8 @@
 
     #search_con {
       #error_rate {
-          padding: 2em 0em;
+        padding: .5em 0em;
+        padding-bottom: 0;
           p{
             display: inline-block;
             margin-left: 1em;
@@ -107,13 +108,13 @@
     }
 
     @keyframes sk-rotateplane {
-          0% { 
+          0% {
               transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-              -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
-            } 50% { 
+              -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+            } 50% {
                 transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-                -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
-              } 100% { 
+                -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+              } 100% {
                   transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
                   -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
                 }

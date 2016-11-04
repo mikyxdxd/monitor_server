@@ -31,6 +31,20 @@
         </p>
       </form>
 
+
+      <form id="error_rate">
+        搜索模式:
+        <p>
+          <input name="search_type" type="radio" id="similar" @click="changeSearchType('similar')" checked/>
+          <label for="similar">类似</label>
+        </p>
+        <p>
+          <input name="search_type" type="radio"  @click="changeSearchType('identical')" id="identical" />
+          <label for="identical">相同</label>
+        </p>
+      </form>
+
+
       <form
             class="dropzone"
             id="upload_form"></form>
@@ -38,10 +52,13 @@
     <div id="search_result">
     <div id="spinner_ctn" v-if="fetching">
         <div class="spinner"></div>
-    </div> 
+    </div>
     <div id="result_con" v-if="!fetching">
         <div id="if_exist" class="row" v-if="duplication">
           <div id="til">搜索图片经有版权保护</div>
+          <div class="info">
+            <span class="til">过程用时: </span><span class="ctn">{{processingTime / 1000}}s</span>
+          </div>
           <div class="info">
             <span class="til">搜索用时: </span><span class="ctn">{{duplication.searchTime / 1000}}s</span>
           </div>
