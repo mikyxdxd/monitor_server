@@ -1,0 +1,121 @@
+#userlibrary{
+  padding: 2em;
+  .page_con{
+    padding: 1em 0em;
+    .dropzone .dz-preview{
+
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      margin: 1%;
+      min-height: 100px;
+      width: 14%;
+      margin-left: 1.6%;
+    }
+    .dropzone .dz-preview .dz-image{
+
+      margin: 0;
+      width: 100%;
+      height: auto;
+    }
+    .dropzone .dz-preview .dz-image img{
+      width:100%;
+    }
+    .dropzone .dz-preview .dz-success-mark, .dropzone .dz-preview .dz-error-mark{
+      pointer-events: none;
+      opacity: 0;
+      z-index: 500;
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: 50%;
+      margin-left: -37px;
+      margin-top: -37px;
+    }
+    #userImages{
+      padding: 1em 0em;
+      display: flex;
+      .img{
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        background-size: cover !important;
+        background-position: 50% !important;
+        //img{
+        //  //max-width:100%;
+        //  transform: tran;
+        //  max-height: 100%;
+        //}
+      }
+    }
+
+    #search_con {
+      #error_rate {
+          padding: 2em 0em;
+          p{
+            display: inline-block;
+            margin-left: 1em;
+            label{
+              padding-left: 25px;
+              color: red;
+              font-size: 0.9em;
+            }
+          }
+      }
+    }
+
+    #search_result{
+
+      padding: 1em 0em;
+      .row{
+        margin: 0;
+      }
+      #if_exist{
+
+        font-size: 1.1em;
+      }
+      .one_dup {
+        margin-top: 1em;
+        height: 600px;
+        .info {
+          font-size: 0.8em;
+          padding: 0.5em 0em;
+          padding: 1em;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+}
+    .spinner {
+          width: 40px;
+            height: 40px;
+              background-color: #333;
+
+                margin: 100px auto;
+                  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+                    animation: sk-rotateplane 1.2s infinite ease-in-out;
+
+    }
+    @-webkit-keyframes sk-rotateplane {
+          0% { -webkit-transform: perspective(120px)  }
+            50% { -webkit-transform: perspective(120px) rotateY(180deg)  }
+              100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg)  }
+
+    }
+
+    @keyframes sk-rotateplane {
+          0% { 
+              transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+              -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+            } 50% { 
+                transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+              } 100% { 
+                  transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                  -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                }
+    }
+}

@@ -1,0 +1,39 @@
+#monitordetail{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  display: flex;
+  #detail_con{
+    margin: auto;
+    width: 50vw;
+    height: 50vh;
+    background: white;
+    padding: 1em;
+    overflow: auto;
+    position: relative;
+    #cls_btn{
+      position: absolute;
+      right:2px;
+      top:2px;
+      font-size: 1.5em;
+      button{
+        background: transparent;
+        border:none;
+      }
+    }
+    .til{
+      font-size: 0.9em;
+    }
+    .content{
+      font-size: 0.8em;
+      img{
+        display: inline-block;
+        max-width: 150px;
+      }
+    }
+  }
+}

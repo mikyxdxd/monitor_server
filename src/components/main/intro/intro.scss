@@ -1,0 +1,165 @@
+#intro{
+  //padding: 1em;
+  #content{
+    //padding: 1.0em;
+    #til{
+      font-size: 6.0em;
+      padding: 0.1em;
+      padding-top: 0.5em;
+      font-weight: 300;
+      &:after{
+        content:'';
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 40px;
+        background: black;
+        left: 0;
+      }
+    }
+    #con{
+      text-align: right;
+      font-size: 1.2em;
+      width: 80%;
+      margin-left: 10%;
+      padding: 1.5em 0em;
+      font-weight: 300;
+    }
+  }
+  #showcases_3{
+
+    margin-top: 50px;
+    .pro_con{
+      min-height: 700px;
+      margin: 1%;
+      border: 3px solid black;
+      overflow: hidden;
+      .layer,.layer_2{
+        width: 120%;
+        height: 700px;
+        padding: 0em;
+        background: #fafafa;
+        background-clip: content-box;
+        background-image: url(https://3.bp.blogspot.com/-UjSubaZwMgk/Vx6NtaHIrxI/AAAAAAAA2RI/7KUDz_zv3SY1FCoymLKpo9eD0WhQ3PF1gCLcB/s1600/1280_prince_piano_etexclusive.jpg);
+        background-size: cover;
+        position: relative !important;
+        //background-position: 50%;
+        margin-top: -5%;
+        margin-left: -5%;
+        color:white;
+        background-attachment: fixed;
+        .content{
+          position: absolute;
+          right: 10%;
+          top: 0;
+          padding-top: 5% !important;
+          height: 100%;
+          padding: 2%;
+          background: rgba(116, 74, 121, 0.40);
+          width: 30%;
+          .til{
+            font-size: 3.0em;
+            font-weight: 300;
+          }
+          .cont{
+            font-weight: 100;
+            font-size: 1.1em;
+          }
+        }
+      }
+      .layer_2{
+        background-image:url('https://images6.alphacoders.com/391/thumb-1920-391336.jpg');
+        .content{
+          background: rgba(129, 79, 46, 0.40);
+        }
+      }
+    }
+  }
+  #showcases_2{
+    margin-top: 50px;
+    .width_5,.width_5_w{
+      height: 350px;
+      overflow: hidden;
+      width:98%;
+      margin-left: 1%;
+      //margin-top: -10px;
+      display: inline-block;
+      position: relative;
+      img{
+        width:100%;
+        display: block;
+      }
+      .before{
+
+      }
+      .after{
+
+        position: absolute;
+        opacity: 0.8;
+        clip: rect(0px 50vw 500px 0px);
+        top: 0;
+        z-index: 1;
+        height: 100%;
+        background: black;
+        width: 100%;
+        display: flex;
+        .content{
+          margin: auto;
+          color: white;
+          width: 60%;
+          .til{
+            font-size: 3.0em;
+            font-weight: 300;
+          }
+          .cont{
+            font-weight: 100;
+            font-size: 1.1em;
+          }
+        }
+
+      }
+    }
+    .width_5_w{
+
+      width: 48.5%;
+      margin-left: 1%;
+      .after{
+        clip: rect(0px 100vw 500px 0px);
+      }
+    }
+  }
+  #showcases{
+    margin-top: 50px;
+    .width_3{
+      display: inline-flex;
+      vertical-align: top;
+      width:32%;
+      margin-left: 1%;
+      overflow: hidden;
+      .text {
+        padding: 1.5em 0em;
+        font-weight: 300;
+        text-align: right;
+        margin: auto;
+      }
+      img{
+        width:100%;
+      }
+    }
+    .width_7{
+      margin-left: 1%;
+      width: 65%;
+      display: inline-block;
+      img{
+        width:100%;
+      }
+    }
+
+
+    .width_7,.width_3,.width_5{
+      margin-top: 1%;
+      height: 310px;
+      overflow: hidden;
+    }
+  }
+}

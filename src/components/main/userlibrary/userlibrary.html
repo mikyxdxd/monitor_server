@@ -1,0 +1,72 @@
+<div id="userlibrary" class="container">
+  <div class="page_til">数据中心</div>
+  <div class="page_con">
+    <div id="media_con">
+    <div class="con_til">版权搜索</div>
+    <!--<div id="userImages">-->
+        <!--<div class="img" :style="{'background':'url(http://i.guancha.cn/mobile/news/2016/10/14/20161014094920175.jpg)'}">-->
+        <!--</div>-->
+        <!--<div class="img" :style="{'background':'url(http://p9.pstatp.com/large/f7500026f29b7ee48e1)'}">-->
+        <!--</div>-->
+    <!--</div>-->
+    </div>
+    <div id="search_con">
+      <form id="error_rate">
+        错误率:
+      <p>
+        <input name="err_rate" type="radio" id="fiv_per" @click="changeErrorRate(5)" checked/>
+        <label for="fiv_per">5%</label>
+      </p>
+      <p>
+        <input name="err_rate" type="radio"  @click="changeErrorRate(10)" id="ten_per" />
+        <label for="ten_per">10%</label>
+      </p>
+        <p>
+          <input name="err_rate" type="radio"  @click="changeErrorRate(15)" id="fif_per" />
+          <label for="fif_per">15%</label>
+        </p>
+        <p>
+          <input name="err_rate" type="radio" @click="changeErrorRate(15)" id="twe_per" />
+          <label for="twe_per">20%</label>
+        </p>
+      </form>
+
+      <form
+            class="dropzone"
+            id="upload_form"></form>
+    </div>
+    <div id="search_result">
+    <div id="spinner_ctn" v-if="fetching">
+        <div class="spinner"></div>
+    </div> 
+    <div id="result_con" v-if="!fetching">
+        <div id="if_exist" class="row" v-if="duplication">
+          <div id="til">搜索图片经有版权保护</div>
+          <div class="info">
+            <span class="til">搜索用时: </span><span class="ctn">{{duplication.searchTime / 1000}}s</span>
+          </div>
+          <div class="info">
+            <span class="til">照片数量: </span><span class="ctn">{{duplication.indexCount}}</span>
+          </div>
+          <div class="one_dup col s6 m6 l4" v-for="dupImg in duplication.data | orderBy '_errorRate'">
+          <div class="info">
+            <span class="til">版权拥有人: </span><span class="ctn">{{dupImg.owner.name}}</span>
+          </div>
+          <div class="info">
+            <span class="til">添加日期: </span><span class="ctn">{{Date(dupImg.addedData)}}</span>
+          </div>
+            <div class="info">
+              <span class="til">错误率: </span><span class="ctn">{{dupImg._errorRate}}</span>
+            </div>
+          <div class="info">
+            <span class="til">原图片: </span><div class="ctn"><img :src="dupImg._id"></div>
+          </div>
+          <div class="info">
+            <span class="til">图片出处/购买地址: </span><span class="ctn"><a :href="dupImg.pageSrc" target="_blank">{{dupImg.pageSrc}}</a></span>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

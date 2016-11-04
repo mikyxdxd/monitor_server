@@ -1,0 +1,47 @@
+<div id="monitorpage" class="container"   >
+  <div class="page_til">监控中心</div>
+  <div class="page_content">
+    <div class="one_mon" v-for="event in eventsList">
+      <div class="m_header th">
+        <i class="w_ic"></i>
+        <div class="lb">{{formateSrc(event.src)}}</div>
+      </div>
+      <div class="mon_ctn">
+        <div class="upd sec">
+          <div class="sec_l">扫描时间</div>
+          <div class="sec_r">{{formateDate(event.addedDate)}}</div>
+        </div>
+        <div class="upd sec">
+          <div class="sec_l">新增监控页面</div>
+          <div class="sec_r">{{event.scannedUrl.length}}</div>
+        </div>
+        <div class="upd sec">
+          <div class="sec_l">新增监控图片</div>
+          <div class="sec_r">{{event.scannedImg.length}}</div>
+        </div>
+      </div>
+      <div class="detail_v" @click="event.$$show = true">查看详情</div>
+      <monitordetail :monitor-event.sync="event" v-if="event.$$show"></monitordetail>
+    </div>
+    <div class="one_mon">
+      <div class="m_header th">
+        <i class="w_ic"></i>
+        <div class="lb">今日头条</div>
+      </div>
+      <div class="mon_ctn">
+        <div class="upd sec">
+          <div class="sec_l">扫描时间</div>
+          <div class="sec_r"> 07-02-2016 18:00</div>
+        </div>
+        <div class="upd sec">
+          <div class="sec_l">新增监控页面</div>
+          <div class="sec_r">24</div>
+        </div>
+        <div class="upd sec">
+          <div class="sec_l">新增监控图片</div>
+          <div class="sec_r"> 10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

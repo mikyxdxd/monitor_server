@@ -1,0 +1,54 @@
+#monitorpage{
+
+  padding: 2em;
+  .one_mon{
+    display: inline-block;
+    position: relative;
+    width: 23%;
+    margin-left: 2%;
+    margin-top: 2%;
+    //padding: 0.5em;
+    min-height: 250px;
+    box-shadow: 0px 0px 10px 0px gainsboro;
+    vertical-align: top;
+    .detail_v{
+      position: absolute;
+      font-size: 0.8em;
+      right: 0px;
+      bottom: 0px;
+      padding: 0.5em 1em;
+      background: #fafafa;
+    }
+    .m_header{
+      padding: 10px;
+      .w_ic{
+        position: absolute;
+        right: -10px;
+        width: 32px;
+        height: 32px;
+        top: -10px;
+        background-size: cover;
+        background: url('http://s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/favicon_8e9c9c7.ico');
+      }
+    }
+    .th{
+      //padding-left: 50px;
+      background: red;
+      color: white;
+      font-weight: bold;
+    }
+    .mon_ctn{
+      padding: 0.5em;
+      .sec_l,.sec_r{
+        //display: inline-block;
+        font-size: 0.9em;
+        //width:30%;
+        vertical-align: top;
+      }
+      .sec_r{
+        //width:70%;
+      }
+    }
+  }
+
+}

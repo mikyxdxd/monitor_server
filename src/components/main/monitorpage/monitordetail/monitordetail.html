@@ -1,0 +1,22 @@
+<div id="monitordetail">
+  <div id="detail_con">
+    <div id="cls_btn"><button @click="monitorEvent.$$show=false">x</button></div>
+    <div class="sec">
+      <div class="til">新增监控网页</div>
+      <div class="content">
+        <div class="urls" v-for="url in monitorEvent.scannedUrl">
+          <div class="url">{{url}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="til">新增监控图片</div>
+      <div class="content">
+        <div class="urls" v-for="img in monitorEvent.scannedImg">
+          <div class="url"><img :src="img.imgSrc"></div>
+          <div class="from">来自:{{img.htmlSrc}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+#notificationpage{
+  padding: 2em;
+  .content_l,.content_r{
+    display: inline-block;
+    width:70%;
+    vertical-align: top;
+    min-height: 100vh;
+    background: #fafafa;
+  }
+  .content_l{
+    width: 30%;
+    border-right: 1px solid pink;
+  }
+  .notify{
+    margin: 0.25em;
+    min-height: 80px;
+    position: relative;
+    .r_lb{
+      padding: 0.5em;
+      padding-left: 100px;
+      font-size: 0.9em;
+      color: white;
+      height:100%;
+      display: flex;
+      height: 80px;
+      .ct{
+        margin: auto;
+        width:100%;
+      }
+    }
+    .l_icn{
+      position: absolute;
+      height: 100%;
+      left: 0;
+      width:70px;
+      background: #ce5555;
+      display: flex;
+      i{
+        color: white;
+        font-size: 2.5em;
+        margin: auto;
+        .lb{
+          font-size: 0.32em;
+          text-align: center;
+          line-height: 1em;
+          position: relative;
+          top: 2px;
+        }
+      }
+    }
+  }
+  .warning{
+    background: #e65555;
+  }
+}
