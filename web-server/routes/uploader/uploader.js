@@ -20,14 +20,6 @@ module.exports = (app,db)=> {
     initRoutes(){
 
 
-      // app.post('/fileupload/identical',upload.single( 'file' ),(req,res)=> {
-      //
-      // })
-      // app.post('/fileupload/similar',upload.single( 'file' ),(req,res)=> {
-      //
-      // })
-
-
       app.post('/fileupload/',upload.single( 'file' ),(req,res)=> {
 
         exec(`./featureCalculation/ImageHash ${req.file.path}`, (error, stdout, stderr)=> {
@@ -35,47 +27,55 @@ module.exports = (app,db)=> {
           let featureArr = stdout.split(' ');
           let option = req.body.searchType;
           featureArr.splice(featureArr.indexOf(`\n`, 1));
-          // this.medias.count({feature_64: {$ne: null}}, (err_, count)=> {
                let ini_time = Date.now();
-            // this.medias.find({feature_64:{$ne: null}}).toArray((err, ele)=> {
                let similars = []
                let ele = this.dataElements;
                let errorRate;
-               for(let i in ele){
+               let ctrErrorRate =  Math.pow(parseInt(req.body.errorRate) / 1000, 2);
 
-                 if(ele[i].feature_64.length != 0) {
 
-                   switch(option) {
+               switch(option){
 
-                     case 'similar':
+                 case 'similar':
+
+                   for(let i in ele){
+
+                     if(ele[i].feature_64.length != 0) {
 
                        errorRate = this.determineSimilarity(ele[i].feature_64, featureArr);
-                       if (errorRate <= parseInt(req.body.errorRate) / 1000) {
+                       if (errorRate <= ctrErrorRate) {
+
+                                 ele[i]._errorRate = errorRate;
+                                 similars.push(ele[i]);
+                       }
+                     }
+                   }
+
+
+
+
+                 break;
+
+
+                 case 'identical':
+
+                   for(let i in ele){
+
+                     if(ele[i].feature_64.length != 0) {
+
+                       errorRate = this.determineIdentical(ele[i].feature_64, featureArr);
+                       if (0 == errorRate) {
 
                          ele[i]._errorRate = errorRate;
                          similars.push(ele[i]);
-                         // break;
+                         break;
                        }
-                     break;
-
-
-                     case 'identical':
-
-                       if(similars.length < 1) {
-                         errorRate = this.determineIdentical(ele[i].feature_64, featureArr);
-                         if (0 == errorRate) {
-
-                           ele[i]._errorRate = errorRate;
-                           similars.push(ele[i]);
-                           break;
-                         }
-                       }
-
+                     }
                    }
-                 }
+
+                 break;
                }
 
-              // if (!err) {
 
                 if (similars.length == 0) {
                   res.json({
@@ -97,12 +97,12 @@ module.exports = (app,db)=> {
                   })
                 }
 
-              fs.unlink(`./${req.file.path}`, (err)=> {
+              fs.unlink(`./${req.file.path}`, (err)=>{
 
                 if (!err) {
 
                   console.log(req.file.path + ' deleted');
-                } else {
+                }else {
 
                   console.log('unlink', err)
                 }
@@ -145,6 +145,7 @@ module.exports = (app,db)=> {
 
           heap.push([next_top,next_bottom]);
           if(j == 5){
+
             heap.sort((a,b)=>{return a[0] - b[0]})
           }
 
@@ -155,7 +156,6 @@ module.exports = (app,db)=> {
             heap.push([next_top,next_bottom]);
             heap.sort((a,b)=>{return a[0] - b[0]})
           }
-
 
         }
 
@@ -168,7 +168,7 @@ module.exports = (app,db)=> {
         bottom -= heap[i][1];
       }
 
-      return Math.pow(top,1/2)/Math.pow(bottom,1/2)
+      return top/bottom
 
     }
   }
